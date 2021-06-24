@@ -1,14 +1,14 @@
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Prenotazione
 {
     String idPrenotazione;
-    Date startDate, endDate;
+    LocalDate startDate, endDate;
     Utente utente;
     Abitazione abitazione;
 
-    public Prenotazione(String idPrenotazione, Date startDate, Date endDate, Utente utente, Abitazione abitazione)
+    public Prenotazione(String idPrenotazione, LocalDate startDate, LocalDate endDate, Utente utente, Abitazione abitazione)
     {
         this.idPrenotazione = idPrenotazione;
         this.startDate = startDate;
@@ -25,19 +25,19 @@ public class Prenotazione
         this.idPrenotazione = idPrenotazione;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
