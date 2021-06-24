@@ -9,14 +9,25 @@ public class Utente {
     String nome;
     String indirizzo;
     String email;
-    Deque<Prenotazione> prenotazioni = new ArrayDeque<>();
+    Deque<Prenotazione> prenotazioni;
 
-
-    public Utente(String IDutente, String nome, String indirizzo, String email) {
+    public Utente(String IDutente, String nome, String indirizzo, String email)
+    {
+        this.prenotazioni = new ArrayDeque<>();
         this.IDutente = IDutente;
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.email = email;
+    }
+
+    public void addPrenotazione(Prenotazione prenota)
+    {
+        prenotazioni.add(prenota);
+    }
+
+    public Prenotazione getLastPrenotazione ()
+    {
+        return prenotazioni.peekFirst();
     }
 
     public String getIDutente() {
@@ -79,7 +90,7 @@ public class Utente {
     }
 
 
-    public void getLast (Utente )
+
 
 
 

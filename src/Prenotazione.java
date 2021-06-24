@@ -69,4 +69,15 @@ public class Prenotazione
     public int hashCode() {
         return Objects.hash(getIdPrenotazione(), getStartDate(), getEndDate(), getUtente(), getAbitazione());
     }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" +
+                "idPrenotazione='" + idPrenotazione + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", utente=" + utente +
+                ", abitazione=" + abitazione +
+                '}';
+    }
 }
