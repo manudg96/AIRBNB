@@ -2,8 +2,13 @@ import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+<<<<<<< Updated upstream
 public class Utente {
 
+=======
+public class Utente
+{
+>>>>>>> Stashed changes
     String IDutente;
     String nome;
     String indirizzo;
@@ -28,6 +33,11 @@ public class Utente {
     public Prenotazione getLastPrenotazione ()
     {
         return prenotazioni.peekFirst();
+    }
+
+    public int getAllPrenotazioni()
+    {
+        return prenotazioni.size();
     }
 
     public String getIDutente() {
@@ -62,6 +72,10 @@ public class Utente {
         this.email = email;
     }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,5 +98,8 @@ public class Utente {
                 ", email='" + email + '\'' +
                 '}';
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }
