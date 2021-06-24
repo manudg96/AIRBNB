@@ -19,8 +19,10 @@ public class AirBNB {
 
 
     public void updateSuperHost () {
-        if (dbHost) {
-
+        for (Host h : dbHost) {
+            if (h.numPrenotazioni>=99) { //perchè va da 0 a 99
+                superHost.add(h);
+            }
         }
     }
 
