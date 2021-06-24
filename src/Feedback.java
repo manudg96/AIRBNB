@@ -39,6 +39,7 @@ public class Feedback {
     }
 
     public void setPunteggio(int punteggio) {
+        //controllo punteggio
         //if (punteggio <= 1 && punteggio => 5){
             this.punteggio = punteggio;
        // }
