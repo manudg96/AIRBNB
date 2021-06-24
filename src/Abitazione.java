@@ -92,7 +92,7 @@ public class Abitazione {
     }
 
     /*
-    
+
     public static void main(String[] args) {
         Abitazione ab = new Abitazione();
         ab.setDateFrom(LocalDate.parse("2021-06-25"));
