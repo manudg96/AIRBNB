@@ -4,7 +4,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Utente {
 
-
     String IDutente;
     String nome;
     String indirizzo;
@@ -18,6 +17,7 @@ public class Utente {
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.email = email;
+        this.prenotazioni=new ArrayDeque<>();
     }
 
     public void addPrenotazione(Prenotazione prenota)
@@ -62,8 +62,6 @@ public class Utente {
         this.email = email;
     }
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,8 +75,6 @@ public class Utente {
         return Objects.hash(IDutente, nome, indirizzo, email);
     }
 
-
-
     @Override
     public String toString() {
         return "Utente{" +
@@ -88,10 +84,5 @@ public class Utente {
                 ", email='" + email + '\'' +
                 '}';
     }
-
-
-
-
-
 
 }
