@@ -6,9 +6,6 @@ import java.util.List;
 
 public class Abitazione {
 
-    public Abitazione() {
-    }
-
     String idAbitazione, nome, indirizzo;
     int numeroLocali, numeroPostiLetto;
     double prezzo;
@@ -95,12 +92,18 @@ public class Abitazione {
     }
 
     /*
+    
     public static void main(String[] args) {
         Abitazione ab = new Abitazione();
         ab.setDateFrom(LocalDate.parse("2021-06-25"));
         ab.setDateTo(LocalDate.parse("2021-06-28"));
         System.out.println(ab.getPeriod().get(ChronoUnit.DAYS));
     }
+
+
+//    public Abitazione() {
+//    }
+
     */
 
 }
