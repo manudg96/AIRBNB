@@ -59,4 +59,14 @@ public class Feedback {
             setPunteggio(punteggio);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "IDFeedback='" + IDFeedback + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", testo='" + testo + '\'' +
+                ", punteggio=" + punteggio +
+                '}';
+    }
 }
