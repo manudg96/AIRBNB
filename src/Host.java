@@ -37,9 +37,4 @@ public class Host extends  Utente{
         this.abitazioni = new ArrayList<>();
     }
 
-    public void updateSuperHost () {
-        if (getNumPrenotazioni()>100) {
-
-        }
-    }
 }

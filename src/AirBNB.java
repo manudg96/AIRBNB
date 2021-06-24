@@ -2,10 +2,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class AirBNB {
-    Set<Utente> dbUtenti = new HashSet<>();
-    Set<Abitazione> dbAbitazione = new HashSet<>();
-    Set<Prenotazione> dbPrenotazioni= new HashSet<>();
-    //Set<> dbHost = new HashSet<>();
+
+    public AirBNB() {
+        this.dbUtenti = new HashSet<>();
+        this.dbAbitazione = new HashSet<>();
+        this.dbPrenotazioni = new HashSet<>();
+        this.dbHost = new HashSet<>();
+        this.superHost = new HashSet<>();
+    }
+
+    Set<Utente> dbUtenti;
+    Set<Abitazione> dbAbitazione;
+    Set<Prenotazione> dbPrenotazioni;
+    Set<Host> dbHost;
+    Set<Host> superHost;
+
+
+    public void updateSuperHost () {
+        if (dbHost) {
+
+        }
+    }
 
     void SearchAbitazione (){
 
