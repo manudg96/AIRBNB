@@ -1,12 +1,19 @@
+import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 
 public class Abitazione {
+
+    public Abitazione() {
+    }
 
     String idAbitazione, nome, indirizzo;
     int numeroLocali, numeroPostiLetto;
     double prezzo;
     List<Feedback> feedBack;
+    LocalDate dateFrom, dateTo;
     Period period;
 
     public Abitazione(String idAbitazione, String nome, String indirizzo, int numeroLocali, int numeroPostiLetto, double prezzo) {
@@ -74,12 +81,26 @@ public class Abitazione {
         this.feedBack = feedBack;
     }
 
-    public Period getPeriod() {
-        return period;
+
+    public void setDateFrom(LocalDate dateFrom) {
+        this.dateFrom = dateFrom;
     }
 
-    public void setPeriod(Period period) {
-        this.period = period;
+    public void setDateTo(LocalDate dateTo) {
+        this.dateTo = dateTo;
     }
+
+    public Period getPeriod() {
+        return Period.between(dateFrom, dateTo);
+    }
+
+    /*
+    public static void main(String[] args) {
+        Abitazione ab = new Abitazione();
+        ab.setDateFrom(LocalDate.parse("2021-06-25"));
+        ab.setDateTo(LocalDate.parse("2021-06-28"));
+        System.out.println(ab.getPeriod().get(ChronoUnit.DAYS));
+    }
+    */
 
 }
