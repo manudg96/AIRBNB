@@ -19,7 +19,7 @@ public class Main {
         Abitazione abitazione4 = new Abitazione("SKNON87", "Trullo", "via Alberobello 54", 1,4,84);
         Abitazione abitazione5 = new Abitazione("LAKSJDN89", "Baita","via Cucuzzolo della Montagna",4,16,52);
 
-        Host h1 = new Host("254521","Gino Pasticcino","via Zattera 1", "gp@gmail.it", "");
+        Host h1 = new Host("","Gino Pasticcino","via Zattera 1", "gp@gmail.it", "254521");
 
         Prenotazione p1 = new Prenotazione("ajhs5",LocalDate.parse("2021-06-05"),LocalDate.parse("2021-06-14"),utente1,abitazione1);
         Prenotazione p2 = new Prenotazione("djfjl",LocalDate.parse("2021-08-03"),LocalDate.parse("2021-08-12"),utente2,abitazione5);
@@ -28,7 +28,7 @@ public class Main {
 
         Prenotazione p5 = new Prenotazione("akskdo", LocalDate.parse("2021-06-14"), LocalDate.parse("2021-06-24"),utente3,abitazione4);
 
-
+        System.out.println();
     }
 
 }
