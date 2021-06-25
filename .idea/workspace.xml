@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="f1a28148-c61e-4ea1-a4d1-1efb8a4979b7" name="Default Changelist" comment="" />
-=======
-    <list default="true" id="274c8d9f-0497-4496-adcc-913af59e8db5" name="Default Changelist" comment="feedback 1.2" />
->>>>>>> Stashed changes
+    <list default="true" id="f1a28148-c61e-4ea1-a4d1-1efb8a4979b7" name="Default Changelist" comment="aggiunti commenti">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AirBNB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AirBNB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +37,7 @@
     &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
     <property name="settings.editor.selected.configurable" value="MTHome" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Abitazione" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Abitazione" />
       <module name="AIRBNB" />
@@ -45,8 +45,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="AIRBNB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Abitazione" />
       </list>
     </recent_temporary>
