@@ -28,18 +28,21 @@ public class AirBNB {
     Set<Host> superHost;
 
     //aggiunge gli host ai super host
-    public void updateSuperHost () {
+    public Set<Host> updateSuperHost () {
         for (Host h : dbHost.values()) {
             if (h.numPrenotazioni>=99) { //perchè va da 0 a 99
                 superHost.add(h);
             }
         }
+        return superHost;
     }
 
     //ottenere le abitazioni corrispondente ad un certo codice host
     ArrayList<Abitazione> SearchAbitazione (String idHost){
         if (dbHost.containsKey(idHost)){
             return dbHost.get(idHost).getAbitazioni();//aggiungere il toString nel main
+        }else {
+
         }
         return null;
     }

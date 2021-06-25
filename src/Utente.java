@@ -41,7 +41,7 @@ public class Utente {
 
     public Prenotazione getLastPrenotazione ()
     {
-        return prenotazioni.peekFirst();
+        return prenotazioni.peekLast();
     }
 
     public int getAllPrenotazioni()
