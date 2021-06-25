@@ -15,6 +15,7 @@ public class Prenotazione
         this.endDate = endDate;
         this.utente = utente;
         this.abitazione = abitazione;
+        this.abitazione.setContPrenotazioni(this.abitazione.getContPrenotazioni() + 1);//aggiunge un punto al conteggio della prenotazione
     }
 
     public String getIdPrenotazione() {

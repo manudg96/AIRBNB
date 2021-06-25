@@ -1,41 +1,54 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class AirBNB {
 
     public AirBNB() {
-        this.dbUtenti = new HashSet<>();
+        //this.dbUtenti = new HashSet<>();
+        this.dbUtenti = new HashMap<>();
         this.dbAbitazione = new HashSet<>();
-        this.dbPrenotazioni = new HashSet<>();
-        this.dbHost = new HashSet<>();
+        this.dbPrenotazioni = new HashMap<>();
+        //this.dbHost = new HashSet<>();
+        this.dbHost = new HashMap<>();
         this.superHost = new HashSet<>();
     }
 
-    Set<Utente> dbUtenti;
+    //Set<Utente> dbUtenti;
+    Map<String, Utente> dbUtenti;
     Set<Abitazione> dbAbitazione;
-    Set<Prenotazione> dbPrenotazioni;
-    Set<Host> dbHost;
+    //Set<Prenotazione> dbPrenotazioni;
+    Map<String, Prenotazione> dbPrenotazioni;
+    Map<String, Host> dbHost;
+    //Set<Host> dbHost;
     Set<Host> superHost;
 
 
+
     public void updateSuperHost () {
-        for (Host h : dbHost) {
+        for (Host h : dbHost.values()) {
             if (h.numPrenotazioni>=99) { //perchè va da 0 a 99
                 superHost.add(h);
             }
         }
     }
 
-    void SearchAbitazione (){
-
+    ArrayList<Abitazione> SearchAbitazione (String idHost){
+        if (dbHost.containsKey(idHost)){
+            return dbHost.get(idHost).getAbitazioni();//aggiungere il toString nel main
+        }
+        return null;
     }
 
-    void UltimaPrenotazione (){
-
+    Prenotazione UltimaPrenotazione (String IDutente){
+        if (dbUtenti.containsKey(IDutente)){
+            return dbUtenti.get(IDutente).getLastPrenotazione();
+        }
+        return null;
     }
 
-    void TopAbitazione (){
-
+    String TopAbitazione (){
+        List<Abitazione> newDbAbitazione = new ArrayList<>(dbAbitazione);
+        newDbAbitazione.sort(Comparator.comparing(Abitazione::getContPrenotazioni));
+        return newDbAbitazione.toString(); // ? da testare
     }
 
     void Top10Host (){

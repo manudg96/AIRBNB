@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Feedback {
@@ -58,6 +59,19 @@ public class Feedback {
             punteggio = m.nextInt();
             setPunteggio(punteggio);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Feedback feedback = (Feedback) o;
+        return punteggio == feedback.punteggio && Objects.equals(IDFeedback, feedback.IDFeedback) && Objects.equals(titolo, feedback.titolo) && Objects.equals(testo, feedback.testo) && Objects.equals(m, feedback.m);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(IDFeedback, titolo, testo, punteggio, m);
     }
 
     @Override

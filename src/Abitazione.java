@@ -3,6 +3,7 @@ import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Abitazione {
 
@@ -12,6 +13,7 @@ public class Abitazione {
     List<Feedback> feedBack;
     LocalDate dateFrom, dateTo;
     Period period;
+    int contPrenotazioni;
 
     public Abitazione(String idAbitazione, String nome, String indirizzo, int numeroLocali, int numeroPostiLetto, double prezzo) {
         this.idAbitazione = idAbitazione;
@@ -20,6 +22,15 @@ public class Abitazione {
         this.numeroLocali = numeroLocali;
         this.numeroPostiLetto = numeroPostiLetto;
         this.prezzo = prezzo;
+        this.contPrenotazioni = 0;
+    }
+
+    public int getContPrenotazioni() {
+        return contPrenotazioni;
+    }
+
+    public void setContPrenotazioni(int contPrenotazioni) {
+        this.contPrenotazioni = contPrenotazioni;
     }
 
     public String getIdAbitazione() {
@@ -78,7 +89,6 @@ public class Abitazione {
         this.feedBack = feedBack;
     }
 
-
     public void setDateFrom(LocalDate dateFrom) {
         this.dateFrom = dateFrom;
     }
@@ -106,4 +116,23 @@ public class Abitazione {
 
     */
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Abitazione that = (Abitazione) o;
+        return numeroLocali == that.numeroLocali && numeroPostiLetto == that.numeroPostiLetto && Double.compare(that.prezzo, prezzo) == 0 && contPrenotazioni == that.contPrenotazioni && Objects.equals(idAbitazione, that.idAbitazione) && Objects.equals(nome, that.nome) && Objects.equals(indirizzo, that.indirizzo) && Objects.equals(feedBack, that.feedBack) && Objects.equals(dateFrom, that.dateFrom) && Objects.equals(dateTo, that.dateTo) && Objects.equals(period, that.period);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idAbitazione, nome, indirizzo, numeroLocali, numeroPostiLetto, prezzo, feedBack, dateFrom, dateTo, period, contPrenotazioni);
+    }
+
+    @Override
+    public String toString() {
+        return "Abitazione{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }

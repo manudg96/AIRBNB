@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Host extends  Utente{
 
@@ -37,4 +38,26 @@ public class Host extends  Utente{
         this.abitazioni = new ArrayList<>();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Host host = (Host) o;
+        return numPrenotazioni == host.numPrenotazioni && Objects.equals(idHost, host.idHost) && Objects.equals(abitazioni, host.abitazioni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), idHost, numPrenotazioni, abitazioni);
+    }
+
+    @Override
+    public String toString() {
+        return "Host{" +
+                "idHost='" + idHost + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
