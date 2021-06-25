@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Host extends  Utente{
 
     String idHost;
-    int numPrenotazioni;
+    int numPrenotazioni; //se arriva a 100 diventa super host
     ArrayList<Abitazione> abitazioni;
 
     public String getIdHost() {
@@ -36,6 +36,7 @@ public class Host extends  Utente{
         super(IDutente, nome, indirizzo, email);
         this.idHost = idHost;
         this.abitazioni = new ArrayList<>();
+        this.numPrenotazioni = 0;
     }
 
     @Override

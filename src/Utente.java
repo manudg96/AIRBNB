@@ -20,10 +20,6 @@ public class Utente {
         this.prenotazioni=new ArrayDeque<>();
     }
 
-    //test
-    public Utente() {
-    }
-
     public void addPrenotazione(Prenotazione prenota)
     {
         prenotazioni.add(prenota);
