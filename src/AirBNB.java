@@ -61,39 +61,80 @@ public class AirBNB {
                 newDbAbitazione.add(p.getAbitazione());
             }
         }
-        newDbAbitazione.sort(Comparator.comparing(Abitazione::getContPrenotazioni));
+        newDbAbitazione.sort(Comparator.comparing(Abitazione::getContPrenotazioni).reversed());
         return newDbAbitazione.toString(); // ? da testare
     }//end TopAbitazione
 
 
     //ottenere gli host con più prenotazioni nell'ultimo mese
-    void Top10Host (){
-        for (Host host:dbHost.values()) { //prendo un host
+    List<HostRank> Top10Host (){
+        Map<String, HostRank> PrenotazionxHost = new HashMap<>();
             for (Prenotazione prenotazione : dbPrenotazioni.values()) { //prendo l abitazione
-                    for (Abitazione abitazione : host.abitazioni) { //controllo l abitazione nell arraylist di host
                         if (prenotazione.getStartDate().isAfter(mesePre) && prenotazione.getStartDate().isBefore(dataOggi)) {
-                            if (host.abitazioni.contains(abitazione)) {
-                                System.out.println(host);
+                                if (!PrenotazionxHost.containsKey(prenotazione.getAbitazione().getIdHost())) {
+                                    PrenotazionxHost.put(prenotazione.getAbitazione().getIdHost(), new HostRank(prenotazione.getAbitazione().getIdHost(), 1));
+                                }else {
+                                    HostRank i = PrenotazionxHost.get(prenotazione.getAbitazione().getIdHost());
+                                    i.setNPrenotazioni(i.getNPrenotazioni() + 1);
+                                    PrenotazionxHost.put(prenotazione.getAbitazione().getIdHost(), i);
                             }
                         }
-                    }
-                }
-        }
-    }
+            }
+        List<HostRank> ordinamentoHost = new ArrayList<>(PrenotazionxHost.values());
+            ordinamentoHost.sort(Comparator.comparingInt(HostRank :: getNPrenotazioni).reversed());
+        return ordinamentoHost.subList(0,10);
+    }// end Top10Host
 
     //ottenere tutti i super-host
-    void AllSuperHost (){
-
+    Set<Host> AllSuperHost (){
+        return superHost;
     }
 
     //ottenere i 5 utenti con più giorni prenotati nell'ultimo mese
-    void Top5Utenti (){
-
+    List<HostRank> Top5Utenti (){
+        Map<String, HostRank> top = new HashMap<>();
+        for (Utente u: dbUtenti.values()) {
+            // u.ContaGiorniNelMese(mesePre, dataOggi);
+            top.put(u.getIDutente(), new HostRank(u.getIDutente(),(int) u.ContaGiorniNelMese(mesePre, dataOggi)));
+        }
+        List<HostRank> ordinamentoHost = new ArrayList<>(top.values());
+        ordinamentoHost.sort(Comparator.comparingInt(HostRank :: getNPrenotazioni).reversed());
+        return ordinamentoHost.subList(0,5);
     }
 
     //ottenere il numero medio di posti letto calcolato in base a tutte le abitazioni caricate dagli host
-    void MediaPostiLetto (){
-
+    int MediaPostiLetto (){
+        int pLetto = 0;
+        for (Abitazione ab:dbAbitazione) {
+            pLetto += ab.getNumeroPostiLetto();
+        }
+        return pLetto / dbAbitazione.size();
     }
 
+}
+//classe di appoggio interna per i top 10 host
+class HostRank {
+    String idHost;
+    int NPrenotazioni;
+
+    public HostRank(String idHost, int NPrenotazioni) {
+        this.idHost = idHost;
+        this.NPrenotazioni = NPrenotazioni;
+    }
+
+    public String getIdHost() {
+        return idHost;
+    }
+
+    public void setIdHost(String idHost) {
+        this.idHost = idHost;
+    }
+
+    public int getNPrenotazioni() {
+        return NPrenotazioni;
+    }
+
+    public void setNPrenotazioni(int NPrenotazioni) {
+        this.NPrenotazioni = NPrenotazioni;
+    }
 }

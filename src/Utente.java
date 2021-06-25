@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -18,6 +21,17 @@ public class Utente {
         this.indirizzo = indirizzo;
         this.email = email;
         this.prenotazioni=new ArrayDeque<>();
+    }
+
+    public long ContaGiorniNelMese(LocalDate mesePre, LocalDate dataOggi){
+        long contDay = 0;
+        for (Prenotazione p: prenotazioni) {
+            if (p.getStartDate().isAfter(mesePre) && p.getStartDate().isBefore(dataOggi)) {
+                Period GiorniSingolaP = Period.between(p.getStartDate(), p.getEndDate());
+                contDay = GiorniSingolaP.get(ChronoUnit.DAYS) + contDay;
+            }
+        }
+        return contDay;
     }
 
     public void addPrenotazione(Prenotazione prenota)

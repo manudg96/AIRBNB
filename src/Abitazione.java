@@ -14,6 +14,7 @@ public class Abitazione {
     LocalDate dateFrom, dateTo;
     Period period;
     int contPrenotazioni;
+    String idHost;
 
     public Abitazione(String idAbitazione, String nome, String indirizzo, int numeroLocali, int numeroPostiLetto, double prezzo) {
         this.idAbitazione = idAbitazione;
@@ -23,6 +24,14 @@ public class Abitazione {
         this.numeroPostiLetto = numeroPostiLetto;
         this.prezzo = prezzo;
         this.contPrenotazioni = 0;
+    }
+
+    public String getIdHost() {
+        return idHost;
+    }
+
+    public void setIdHost(String idHost) {
+        this.idHost = idHost;
     }
 
     public int getContPrenotazioni() {

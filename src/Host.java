@@ -32,6 +32,13 @@ public class Host extends  Utente{
         this.abitazioni = abitazioni;
     }
 
+    //cosi settiamo l id host all interno della classe abirazione
+    public void AggiungiAbitazione (Abitazione abitazione){
+        abitazione.setIdHost(idHost);
+        abitazioni.add(abitazione);
+    }
+
+    //c'è la distinzione perche volevamo che un host potesse diventare in futuro anche un utente con lo stesso account.
     public Host(String IDutente, String nome, String indirizzo, String email, String idHost) {
         super(IDutente, nome, indirizzo, email);
         this.idHost = idHost;
