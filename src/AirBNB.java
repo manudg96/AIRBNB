@@ -102,7 +102,7 @@ public class AirBNB {
         }
         List<HostRank> ordinamentoHost = new ArrayList<>(top.values());
         ordinamentoHost.sort(Comparator.comparingInt(HostRank :: getNPrenotazioni).reversed());
-        return ordinamentoHost.subList(0,5);
+        return ordinamentoHost/*.subList(0,5)*/;
     }
 
     //ottenere il numero medio di posti letto calcolato in base a tutte le abitazioni caricate dagli host
@@ -139,5 +139,13 @@ class HostRank {
 
     public void setNPrenotazioni(int NPrenotazioni) {
         this.NPrenotazioni = NPrenotazioni;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "ID ='" + idHost + '\'' +
+                ", N =" + NPrenotazioni +
+                '}';
     }
 }
